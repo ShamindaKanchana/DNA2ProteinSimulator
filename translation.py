@@ -29,7 +29,7 @@ def translation(rna_sequence):
     amino_acid_sequence=''
     if len(rna_sequence)%3==0:
         for i in range(0,len(rna_sequence),3):
-            amino_acid_sequence+=' '+CODON_TO_AMINO_ACID[rna_sequence[i:i+3]]
+            amino_acid_sequence+=CODON_TO_AMINO_ACID[rna_sequence[i:i+3]]+'-'
         return amino_acid_sequence 
     else:
         print('Cannot convert to amino acid')

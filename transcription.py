@@ -20,3 +20,7 @@ def transcription(sequence):
         transcripted_seq+=nuc[i]
     return transcripted_seq    
         
+        
+        
+       
+        
