@@ -15,7 +15,7 @@ textbox = tk.Text(root, height=3, width=40, font=('Arial', 15))
 textbox.pack()
 
 
-nucleotide_colors = {"A": "red", "T": "blue", "G": "green", "C": "yellow"}
+
 
 result_label = tk.Label(root, text="", font=('Arial', 12), fg="blue", wraplength=400)
 result_label.pack(pady=20)
@@ -35,14 +35,23 @@ def process_input():
 
 def dna_process_visualize():
     user_input = textbox.get("1.0", tk.END).strip().upper()
-    visualize_seq(user_input, nucleotide_colors)
+    dna_nucleotide_colors = {"A": "red", "T": "blue", "G": "green", "C": "yellow"}
+    visualize_seq(user_input, dna_nucleotide_colors)
 
     
-
+def rna_process_visualize():
+    user_input = textbox.get("1.0", tk.END).strip().upper()
+    rna_sequence = transcription(user_input)
+    rna_nucleotide_colors = {"A": "red", "U": "orange", "G": "green", "C": "yellow"}
+    visualize_seq(rna_sequence, rna_nucleotide_colors)
+    
 submit = tk.Button(root, text="Submit", font=('Arial', 10), command=process_input)
 submit.pack()
 
-visualize= tk.Button(root, text="Visualize", font=('Arial', 10), command=dna_process_visualize)
-visualize.pack()
+dna_visualize= tk.Button(root, text="DNAVisualize", font=('Arial', 10), command=dna_process_visualize)
+dna_visualize.pack()
+
+rna_visualize= tk.Button(root, text="RNAVisualize", font=('Arial', 10), command=rna_process_visualize)
+rna_visualize.pack()
 
 root.mainloop()
