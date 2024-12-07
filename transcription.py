@@ -23,4 +23,9 @@ def transcription(sequence):
         
         
        
+import random
+def random_seq(length):
+  seq=''.join(random.choices(['A','T','G','C'],k=length))
+  return seq
+
         
